@@ -1,5 +1,6 @@
 <?php
-// hgauth.php - version 1.0 - 25-08-2022
+// Github: https://github.com/cuga-rajal/hgauth
+//
 // This file is expected to be used to receive HG teleport authorization requests from an 
 // Opensim Authorization Service and to send responses back to that service.
 
