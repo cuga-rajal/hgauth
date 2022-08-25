@@ -1,0 +1,10 @@
+Options All -Indexes
+
+<Files "authconfig.php">
+Require all denied
+</Files>
+
+<Files "hgauth.php">
+Require all denied
+Require forward-dns mydomain.com
+</Files>
