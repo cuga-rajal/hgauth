@@ -87,9 +87,9 @@ renamed .htaccess and placed in the directory containing the PHP scripts. Apache
 may need to be configured to read the .htaccess file.
 
 
-   authconfig.php - should not be accessed directly, it is meant to be an include file only
-   hgauth.php - access should be restricted to the IP of the Opensim server's inbound HTTP connection
-   index.php - unrestricted web page
+- authconfig.php - should not be accessed directly, it is meant to be an include file only
+- hgauth.php - access should be restricted to the IP of the Opensim server's inbound HTTP connection
+- index.php - unrestricted web page
  
 Though not critical, make sure your date.timezone is set in your php.ini.
 Failure to do so may result in database records containing a mix of local and
@@ -99,9 +99,9 @@ confirmation time is written by PHP.
 
 *** Requirements
 
- * Webserver, tested on Apache 
- * PHP, tested and developed on PHP 8.x
- * mySQL server, should work on all flavors of mySQL >= 7.x or MariaDB >= 10.x.
+- Webserver, tested on Apache 
+- PHP, tested and developed on PHP 8.x
+- mySQL server, should work on all flavors of mySQL >= 7.x or MariaDB >= 10.x.
 
 
 *** Credits
