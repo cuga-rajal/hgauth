@@ -4,7 +4,7 @@
 // This file is expected to be used to present an authorization from on a web browser
 // to a user who has attempted to HG teleport to an Opensim region.
 //
-// Make sure your date.timezone is set in php-ini
+// Make sure your date.timezone is set in php.ini
 
 $tokenerror = "You have accessed this page differently than intended. Please use the link provided from your Opensim Viewer.";
 $alreadyreg = "It appears that your avatar is already authorized with the system. You may now HG teleport.";

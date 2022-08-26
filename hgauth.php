@@ -53,10 +53,14 @@ if(($nametest == "@") && (mysqli_num_rows($data)>0)) {
 }
 
 if(($nametest == "@") && (mysqli_num_rows($data)==0)) { 
-    $token = substr(hash("sha1", $avatarname, false),0,7);
-	$query = "INSERT INTO $tablename (`token`) VALUES ('". $token . "')";
-	$data = mysqli_query($dbc, $query);
+	$token = substr(hash("sha1", $avatarname, false),0,7);
 	
+	$query2 = "SELECT * FROM $tablename WHERE token='$token' AND avatarname=''";
+	$data2 = mysqli_query($dbc, $query2);
+	if(mysqli_num_rows($data2)==0) {
+		$query3 = "INSERT INTO $tablename (`token`) VALUES ('" . $token . "')";
+		$data3 = mysqli_query($dbc, $query3);
+	}
 	$getstring = base64_url_encode("fn=" . $firstname . "&ln=" . $lastname);
 	$authlink2 = $authlink . "?token=" . $getstring;
 	
