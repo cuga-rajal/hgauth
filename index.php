@@ -8,7 +8,7 @@
 
 $tokenerror = "You have accessed this page differently than intended. Please use the link provided from your Opensim Viewer.";
 $alreadyreg = "It appears that your avatar is already authorized with the system. You may now HG teleport.";
-$regmsg = "To accept the Terms of Service and GDPR for the Rajal.org grid, please complete the following form.";
+$regmsg = "To accept the Terms of Service and GDPR at our grid, please complete the following form.";
 $confirmyes = "Thank you for authorizing your avatar. You may now teleport to reach the target region.";
 $confirmno = "We are sorry to see you go.";
 $ajaxerror = "An error occurred. Please make sure nothing has been altered from the original link.";
@@ -27,11 +27,11 @@ if((isset($_REQUEST["CONFIRMAUTH"])) && (isset($_REQUEST["avatarname"]))) {
 		$expected = substr(hash("sha1", $avatarname, false),0,7);
 		$confirmtime = date("Y/m/d H:i:s",time());
 		$query = "UPDATE $tablename SET avatarname='$avatarname', confirmtime='$confirmtime' WHERE token='$expected'";
-	    if($data = mysqli_query($dbc, $query)) { $xml = "<status>1</status>"; }                  // If query successful report success
-	    else { $xml = "<status>0</status><msg>$query</msg>"; }                                   // If malformed query, report it as a problem
-	    if(mysqli_affected_rows($dbc)==0) { $xml = "<status>0</status><msg>$query</msg>"; }      // But if no rows were updated, report it as a problem
-   		header('Content-type: text/xml');
-   		echo "<data>\n$xml</data>\n";
+		if($data = mysqli_query($dbc, $query)) { $xml = "<status>1</status>"; }                  // If query successful report success
+		else { $xml = "<status>0</status><msg>$query</msg>"; }                                   // If malformed query, report it as a problem
+		if(mysqli_affected_rows($dbc)==0) { $xml = "<status>0</status><msg>$query</msg>"; }      // But if no rows were updated, report it as a problem
+		header('Content-type: text/xml');
+		echo "<data>\n$xml</data>\n";
 	} 
 	exit(0);
 }

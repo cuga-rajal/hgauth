@@ -5,7 +5,8 @@ inbound HG teleport
 
 Version 1.0, August 25, 2022
 
-*** Summary
+-----
+**Summary**
 
 This is a re-write of Project Sasha which has not been developed since 2018.
 
@@ -15,8 +16,8 @@ are allowed to enter.
 
 Although I am not aware of any issues, please use it at your own risk. 
 
-
-*** How it works
+-----
+**How it works**
 
 Avatars attempting to HG teleport to a grid with this package installed, will
 receive a rejection dialog in the Viewer with a customizable message and an
@@ -33,8 +34,8 @@ The verbiage on the web page can be changed or adapted to suit your needs.
 Project Sasha was originally developed to enforce legal requirements of GDPR for
 residents of the EU. However the form can be used to enforce TOS or other needs.
 
-
-*** Changes from Project Sasha
+-----
+**Changes from Project Sasha**
 
 - Eliminated transmitting the username and UUID in the clear in the URL namespace
 - Eliminated vulnerability of the form processor that could result in database misuse
@@ -43,8 +44,8 @@ residents of the EU. However the form can be used to enforce TOS or other needs.
 - Consolidation of PHP templates to simplify UI changes
 - Added developer information, to report bugs and feature requests
 
-
-*** How to install
+-----
+**How to install**
 
 The file hgauth.sql will give you the table structure you need
 import it into your mysql server, into the database you choose.
@@ -96,24 +97,23 @@ Failure to do so may result in database records containing a mix of local and
 GMT times. Creation time is written by the internal clock of mySQL while
 confirmation time is written by PHP.
 
+-----
+**Requirements**
 
-*** Requirements
-
-- Webserver, tested on Apache 
+- Webserver, tested on Apache 2.4.x
 - PHP, tested and developed on PHP 8.x
 - mySQL server, should work on all flavors of mySQL >= 7.x or MariaDB >= 10.x.
 
-
-*** Credits
+-----
+**Credits**
 
 Portions of the code are taken from Project Sasha. The following people (avatars)
 are credited from Project Sasha: Foto50, Hack13, FreakyTech and Leighton Marjoram.
 
-
-
-----
+-----
 
 This is a work in progress. Please notify me of bugs or feature requests.
 
 Cuga Rajal (Second Life and OSGrid)
+
 cuga@rajal.org

@@ -1,7 +1,7 @@
 <?php
 // Github: https://github.com/cuga-rajal/hgauth
 
-$db_server = '127.0.0.1';
+$db_server = 'dbserver';
 $db_name = 'dbname';
 $db_user = 'dbuser';
 $db_pass = 'dbpass';
