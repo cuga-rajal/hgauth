@@ -114,6 +114,6 @@ are credited from Project Sasha: Foto50, Hack13, FreakyTech and Leighton Marjora
 
 This is a work in progress. Please notify me of bugs or feature requests.
 
-Cuga Rajal (Second Life and OSGrid)
+Cuga Rajal (Second Life and Opensim)
 
 cuga@rajal.org
