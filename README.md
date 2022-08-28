@@ -3,7 +3,7 @@ HGAuth
 An Opensim authentication module that can enforce a Web Form submission before allowing 
 inbound HG teleport
 
-Version 1.0, August 25, 2022
+Version 1.0.1, August 28, 2022
 
 -----
 **Summary**
@@ -33,6 +33,11 @@ avatar names other than the one actually used in the viewer.
 The verbiage on the web page can be changed or adapted to suit your needs. 
 Project Sasha was originally developed to enforce legal requirements of GDPR for
 residents of the EU. However the form can be used to enforce TOS or other needs.
+
+-----
+**Recent changes**
+
+Version 1.0.1 contains minor bug fixes and documentation updates.
 
 -----
 **Changes from Project Sasha**
@@ -103,6 +108,14 @@ confirmation time is written by PHP.
 - Webserver, tested on Apache 2.4.x
 - PHP, tested and developed on PHP 8.x
 - mySQL server, should work on all flavors of mySQL >= 7.x or MariaDB >= 10.x.
+
+-----
+**Terms of Use**
+
+By using files this package you agree with the following:
+- Installation is meant only for evaluation purposes
+- The service is not supported by the developers of Opensim server software
+- Authors are not liable for any damages, use it at your own risk
 
 -----
 **Credits**
