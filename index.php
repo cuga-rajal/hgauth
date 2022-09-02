@@ -28,8 +28,8 @@ if((isset($_REQUEST["CONFIRMAUTH"])) && (isset($_REQUEST["avatarname"]))) {
 		$confirmtime = date("Y/m/d H:i:s",time());
 		$query = "UPDATE $tablename SET avatarname='$avatarname', confirmtime='$confirmtime' WHERE token='$expected'";
 		if($data = mysqli_query($dbc, $query)) { $xml = "<status>1</status>"; }                  // If query successful report success
-		else { $xml = "<status>0</status><msg>$query</msg>"; }                                   // If malformed query, report it as a problem
-		if(mysqli_affected_rows($dbc)==0) { $xml = "<status>0</status><msg>$query</msg>"; }      // But if no rows were updated, report it as a problem
+		else { $xml = "<status>0</status><msg>malformed query error</msg>"; }                                   // If malformed query, report it as a problem
+		if(mysqli_affected_rows($dbc)==0) { $xml = "<status>0</status><msg>no rows were updated</msg>"; }      // But if no rows were updated, report it as a problem
 		header('Content-type: text/xml');
 		echo "<data>\n$xml</data>\n";
 	} 
@@ -105,7 +105,7 @@ $_SESSION['id'] = session_id();
 
 <?php echo $message; 
 
-if(! $skip) { ?>
+//if(! $skip) { ?>
 <br /><br />
 <strong><?php echo $avatarname; ?></strong>
 <br /><br />
@@ -136,11 +136,11 @@ Accepting the agreement below indicates acceptance of the Terms of Service and, 
 <li>I confirm I am 18 years of age or older</li>
 <li>If I live in the EU, I give you my permission to collect and use my data as indicated above</li>
 </ul>
-<input id="b1" type="button" value="YES" name="CONFIRMAUTH" onclick="sendAjax()" />&nbsp;&nbsp;&nbsp;&nbsp;
-<input id="b2" type="button" value="NO" name="CONFIRMAUTH" onclick="rejected()" />
+<input id="b1" type="button" value="YES" name="CONFIRMAUTH" style="font-size:140%" onclick="sendAjax()" />&nbsp;&nbsp;&nbsp;&nbsp;
+<input id="b2" type="button" value="NO" name="CONFIRMAUTH" style="font-size:140%" onclick="rejected()" />
 </form>
 </div>
-<?php } ?>
+<?php //<?php } ?>
 
 </div> <!-- the last </div> on the page -->
 
