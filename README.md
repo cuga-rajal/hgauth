@@ -127,7 +127,9 @@ are credited from Project Sasha: Foto50, Hack13, FreakyTech and Leighton Marjora
 
 -----
 
-This is a work in progress. Please notify me of bugs or feature requests.
+If you like this project, please give me a star.
+
+Please notify me of any bugs or feature requests.
 
 Cuga Rajal (Second Life and Opensim)
 
