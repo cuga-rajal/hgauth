@@ -36,6 +36,11 @@ $lastname = $xml3->SurName;
 $nametest = substr($lastname,0,1);
 $avatarname	= $firstname.$lastname;
 
+if($avatarname=='') {
+	header('Status: 204');   
+	exit();
+}
+
 $query = "SELECT * FROM $tablename WHERE avatarname LIKE '" . $avatarname . "'";
 $data = mysqli_query($dbc, $query);
 

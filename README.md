@@ -3,7 +3,7 @@ HGAuth
 An Opensim authentication module that can enforce a Web Form submission before allowing 
 inbound HG teleport
 
-Version 1.0.2, September 02, 2022
+Version 1.0.3, December 7, 2022
 
 -----
 **Summary**
@@ -36,6 +36,9 @@ residents of the EU. However the form can be used to enforce TOS or other needs.
 
 -----
 **Recent changes**
+
+Version 1.0.3 added workaround for requests with empty FirstName and SurName, 
+which appears to be a bug on recent versions of the server
 
 Version 1.0.2 removed development code and added minor UI improvements.
 
