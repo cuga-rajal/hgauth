@@ -37,8 +37,11 @@ residents of the EU. However the form can be used to enforce TOS or other needs.
 -----
 **Recent changes**
 
-Version 1.0.3 added workaround for requests with empty FirstName and SurName, 
-which appears to be a bug on recent versions of the server
+Version 1.0.3 adds a workaround for a bug introduced in late 2022.
+The Opensim dev team is investigating this bug. 
+Please note that as part of the workaround,
+avatars who authenticate with the web form must restart their viewers
+after authenticating.
 
 Version 1.0.2 removed development code and added minor UI improvements.
 
