@@ -16,8 +16,11 @@ $request = @file_get_contents('php://input');
 $xml3 = simplexml_load_string($request);
 if($xml3) {
 	$uuid = $xml3->ID;
+	$uuid = mysqli_real_escape_string($dbc,$uuid);
 	$firstname = $xml3->FirstName;
+	$firstname = mysqli_real_escape_string($dbc,$firstname);
 	$lastname = $xml3->SurName;
+	$lastname = mysqli_real_escape_string($dbc,$lastname);
 	$nametest = substr($lastname,0,1);
 	$avatarname	= $firstname.$lastname;
 } else {
