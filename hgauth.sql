@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `hgauth` (
   `confirmtime` datetime,
   PRIMARY KEY (`id`),
   UNIQUE KEY uuid (`uuid`),
-  UNIQUE KEY avatarname (`avatarname`)
+  KEY avatarname (`avatarname`)
 ) DEFAULT CHARSET=utf8;
 COMMIT;
 

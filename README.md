@@ -3,32 +3,35 @@ HGAuth
 An Opensim authentication module that can enforce a Web Form submission before allowing 
 inbound HG teleport
 
-Version 1.0.3, December 7, 2022
+Version 1.0.4, December 17, 2024
 
 -----
 **Summary**
 
 This is a re-write of Project Sasha which has not been developed since 2018.
 
-It is a set of PHP scripts that provide a way to enforce inbound HG teleporting
+This is a set of PHP scripts that provide a way to enforce inbound HG teleporting
 avatars (from other grids) to agree to terms presented on a web page, before they
-are allowed to enter. 
+are allowed to enter.
+
+December 2024: I have re-written this to be compatible with the latest viewers and
+OS server versions. It now uses UUIDs for authentication.
 
 Although I am not aware of any issues, please use it at your own risk. 
 
 -----
 **How it works**
 
-Avatars attempting to HG teleport to a grid with this package installed, will
-receive a rejection dialog in the Viewer with a customizable message and an
+Avatars attempting to HG teleport to a grid for the first time with this package installed, will
+receive a rejection dialog in the Viewer that contains a customizable message and an
 external link. Clicking that link will take them to an external web page with an
-on-page message and a form. The web form pre-fills their avatar address so they
-can not enter it manually. They are asked to confirm or reject the agreement.
+on-page message and a form. 
 Clicking the Confirm/Yes button on the form will authorize them for future
 inbound HG teleports.
 
-The package prevents the avatar name from being altered and prevents submitting
-avatar names other than the one actually used in the viewer.
+The current implementation authenticates based on avatar's UUID in the viewer
+and prevents this from being altered. The web form has security features to prevent
+a variety of misuses.
 
 The verbiage on the web page can be changed or adapted to suit your needs. 
 Project Sasha was originally developed to enforce legal requirements of GDPR for
@@ -37,11 +40,20 @@ residents of the EU. However the form can be used to enforce TOS or other needs.
 -----
 **Recent changes**
 
-Version 1.0.3 adds a workaround for a bug introduced in late 2022.
-The Opensim dev team is investigating this bug. 
-Please note that as part of the workaround,
-avatars who authenticate with the web form must restart their viewers
-after authenticating.
+Version 1.0.4 removes user@grid data in the authentication process due to
+unresolved issues in the HTTP requests' sequence of XML payloads. This version fixes
+viewer instability due to these bugs; However, user@grid information is no longer
+availabe for display on web forms or authentication. Authentication is now based on UUID.
+This change allows bug-free HG-TPs after signing the form.
+
+The hgauth database table in Version 1.0.4 has an change since 1.0.3. Table data
+from previous versions is compatible, however, existing tables migrating to 1.0.4 MUST
+remove/delete the UNIQUE key for 'avatarname' before using version 1.0.4. You can optionally
+add an INDEX key for 'avatarname' to speed up queries.
+
+Version 1.0.3 added a workaround to keep user@grid data available for display and
+authentication. However, newer viewer releases developed an incompatibility to
+this with the symptom of requiring a viewer restart before a successful 2nd teleport. 
 
 Version 1.0.2 removed development code and added minor UI improvements.
 
@@ -101,8 +113,9 @@ renamed .htaccess and placed in the directory containing the PHP scripts. Apache
 may need to be configured to read the .htaccess file.
 
 
-- authconfig.php - should not be accessed directly, it is meant to be an include file only
-- hgauth.php - access should be restricted to the IP of the Opensim server's inbound HTTP connection
+- authconfig.php - should not be accessed directly, it is meant to be an include file only -
+recommend placing this outside the document root or using .htaccess to prevent access
+- hgauth.php - access should be restricted to the IP of the hosting Opensim server's inbound HTTP connection
 - index.php - unrestricted web page
  
 Though not critical, make sure your date.timezone is set in your php.ini.
